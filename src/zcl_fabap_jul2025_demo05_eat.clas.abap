@@ -1,0 +1,33 @@
+CLASS zcl_fabap_jul2025_demo05_eat DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    INTERFACES if_amdp_marker_hdb.
+
+
+
+    CLASS-METHODS get_data
+        FOR TABLE FUNCTION zi_fabap_demo05_eat .
+
+
+
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS ZCL_FABAP_JUL2025_DEMO05_EAT IMPLEMENTATION.
+
+
+  METHOD get_data BY DATABASE FUNCTION
+   FOR HDB LANGUAGE SQLSCRIPT
+   USING /dmo/flight.
+
+    RETURN select * from "/DMO/FLIGHT"
+    WHERE client = session_context('CLIENT');
+
+  ENDMETHOD.
+ENDCLASS.

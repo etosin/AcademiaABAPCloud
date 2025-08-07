@@ -1,0 +1,24 @@
+CLASS zcl_fabap_jul2025_demo07_eat DEFINITION
+  PUBLIC
+  INHERITING FROM zcl_fabap_jul2025_demo06_eat
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    METHODS: reproduzir_som REDEFINITION.
+
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS ZCL_FABAP_JUL2025_DEMO07_EAT IMPLEMENTATION.
+
+
+  METHOD reproduzir_som.
+
+    rv_voice = |{ 'Au au' }|.
+
+  ENDMETHOD.
+ENDCLASS.
